@@ -1,0 +1,4 @@
+config/conf_demo.yaml
+__pycache__/
+bsync_save/
+.idea/

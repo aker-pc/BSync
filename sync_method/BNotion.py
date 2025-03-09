@@ -120,7 +120,7 @@ class BNotion:
                     logger.error("该记录未填写订单号 " + str(data))
         return bill_list
 
-    def sync_bills(self, server, platform, update_data):
+    def sync_bills(self, platform, update_data):
         nums = 0
         same_nums = 0
         bill_list = self.check_contrast(platform)
@@ -201,7 +201,6 @@ class BNotion:
 
                 else:
                     same_nums += 1
-        # send_email(server=server, subject="同步完成", content=platform + "同步完成\n本次同步了" + str(nums) + "条数据")
         logger.info("成功同步" + str(nums) + "条数据")
         logger.info("重复数据" + str(same_nums) + "条")
 

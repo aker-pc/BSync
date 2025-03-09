@@ -1,9 +1,9 @@
 import yaml
 
 recv_config = {
-    # "alipay": {
-    #     "sender" : "service@mail.alipay.com",
-    # },
+    "alipay": {
+        "sender" : "service@mail.alipay.com",
+    },
     "wechat": {
         "sender" : "wechatpay@tencent.com",
     }
@@ -16,6 +16,9 @@ class Bconfig:
         with open(config_path, encoding='utf-8') as yaml_file:
             self.__config = yaml.safe_load(yaml_file)
 
+    def is_gui(self) -> bool:
+        return self.__config['with_gui_start']
+
 
     def get_email_config(self) -> dict:
         return self.__config["email"]
@@ -23,6 +26,10 @@ class Bconfig:
 
     def get_notion_config(self) -> dict:
         return self.__config["notion"]
+
+
+    def get_feishu_config(self) -> dict:
+        return self.__config["feishu"]
 
 
     # TODO: 配置文件字段异常捕获

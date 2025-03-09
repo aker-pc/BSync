@@ -111,7 +111,7 @@ class BFile:
 
 
         archive_file_path = os.path.join(platform_path, os.path.basename(unzip_path))
-        shutil.move(unzip_path, archive_file_path)
+        shutil.copy(unzip_path, archive_file_path)
 
     # 解压文件
     @staticmethod

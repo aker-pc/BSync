@@ -29,3 +29,13 @@ notion:
   token:
   # 父页面类型，为数据库使用请使用 'database_id'
   type:
+
+# 飞书Api 使用方式（晚点可写个教程），基于多维表格实现
+feishu:
+  # 飞书应用的相关信息
+  app_id:
+  app_secret:
+
+  # 多维表格的相关信息 (https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table-record/batch_create?appId=cli_a746acaebaba101c)
+  app_token:
+  table_id:

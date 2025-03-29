@@ -1,4 +1,5 @@
 from sync_method import BNotion
+from dump_method import dump2sqlite
 from sync_method import BFeishu
 import Bconfig
 import Bmail
@@ -17,9 +18,12 @@ bmail = Bmail.Bmail(bconfig.get_email_config())
 bfeishu = BFeishu.BFeishu(bconfig.get_feishu_config())
 
 bmail.login()
-for bill_platform, check_info in Bconfig.recv_config.items():
-    mails = bmail.get_email(check_info)
-    file_path = bmail.handle_email(mails, bill_platform)
-    csv_data = BFile.BDataLoader.bill_data(file_path, bill_platform == "alipay")
-    is_successes = bfeishu.sync_bills(bill_platform, csv_data)
-    # is_successes = bnotion.sync_bills(bill_platform, notion_data)
+bill_platform = "wechat"  # wechat
+check_info = Bconfig.recv_config[bill_platform]
+
+mails = bmail.get_email(check_info)
+file_path = bmail.handle_email(mails, bill_platform)
+dump2sqlite.dump_sqlite(bill_platform, file_path)
+csv_data = BFile.BDataLoader.bill_data(file_path, bill_platform == "alipay")
+is_successes = bfeishu.sync_bills(bill_platform, csv_data)
+# is_successes = bnotion.sync_bills(bill_platform, notion_data)

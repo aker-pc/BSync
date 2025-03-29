@@ -15,11 +15,17 @@
   - 进一步优化原有冗余逻辑
   - 支持gui界面
 
+## changeLog
+
+**20250329** 支持dump账单信息至sqlite 
+
 ## 效果如图
 - notion效果
 ![](./img/notion.png)
 - 飞书效果
 ![](./img/feishu.png)
+- 基于sqlite数据进行的grafana展示
+![](./img/grafana.png)
 
 ## 整体功能逻辑
 ![](./img/work_process.png)
